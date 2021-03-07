@@ -25,15 +25,6 @@ abstract class BaseActivity extends BobbleEnablerActivity {
     }
 
     public String getAppLocale(Context context) {
-        return context.getSharedPreferences("prefs", 0).getString("locale", "in");
-    }
-
-    public void toggleAppLocale() {
-        SharedPreferences preferences = getSharedPreferences("prefs", 0);
-        String current = preferences.getString("locale", "in");
-        if (current.equals("in"))
-            preferences.edit().putString("locale","en").apply();
-        else
-            preferences.edit().putString("locale","in").apply();
+        return context.getSharedPreferences("prefs", 0).getString("locale", "en");
     }
 }

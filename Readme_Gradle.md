@@ -42,7 +42,7 @@ allprojects {
 - Add the following line to the dependencies element in your application module’s build.gradle.
 
 ```java
-    implementation 'com.touchtalent.bobblekeyboard:keyboard:2.0.3.000'
+    implementation 'com.touchtalent.bobblekeyboard.demo:keyboard:1.0.0.000'
 ```
 
 - Sync your Gradle project to ensure that the dependency is downloaded by the build system.
@@ -195,8 +195,7 @@ boolean BobbleIMESDK.setDefaultLanguage(BobbleSupportedLanguage language)
 Supported languages :
 ```java
 enum BobbleSupportedLanguage{
-    ENGLISH,
-    BAHASA
+    ENGLISH
 }
 ```
 

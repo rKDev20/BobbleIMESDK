@@ -7,7 +7,6 @@ import android.widget.TextView;
 import com.bobble.keyboardplayground.R;
 import com.touchtalent.bobbleime.sdk.BobbleIMESDK;
 
-import static com.touchtalent.bobbleime.sdk.BobbleIMESDK.BobbleSupportedLanguage.BAHASA;
 import static com.touchtalent.bobbleime.sdk.BobbleIMESDK.BobbleSupportedLanguage.ENGLISH;
 
 /**
@@ -24,17 +23,10 @@ public class MainActivity extends BaseActivity {
             startActivity(intent);
         });
 
-        findViewById(R.id.changeLanguage).setOnClickListener(v -> {
-            toggleAppLocale();
-            String newLocale = getAppLocale(this);
-            if (newLocale.equals("in"))
-                BobbleIMESDK.setDefaultLanguage(BAHASA);
-            else if (newLocale.equals("en"))
-                BobbleIMESDK.setDefaultLanguage(ENGLISH);
-            finish();
-            startActivity(new Intent(this, MainActivity.class));
-        });
-        findViewById(R.id.webView).setOnClickListener(v->{
+        String locale = getAppLocale(this);
+        if (locale.equals("en"))
+            BobbleIMESDK.setDefaultLanguage(ENGLISH);
+        findViewById(R.id.webView).setOnClickListener(v -> {
             startActivity(new Intent(this, WebViewActivity.class));
         });
     }
@@ -42,6 +34,5 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        ((TextView) findViewById(R.id.currentLanguage)).setText("Current language : " + getAppLocale(this));
     }
 }
